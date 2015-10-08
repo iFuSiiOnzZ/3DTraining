@@ -12,7 +12,7 @@ class CFPSCamera : public CCamera
         
     public:
         CFPSCamera(void);
-        CFPSCamera(float l_Fov, float l_ZNear, float l_ZFar, CObject3D &l_3DCameraInfo, CInputManager &l_InputManager, CTimer &l_Timer);
+        CFPSCamera(float l_Fov, float l_ZNear, float l_ZFar, CObject3D *l_3DCameraInfo, CInputManager *l_InputManager, CTimer *l_Timer);
         ~CFPSCamera(void);
 
         void Update(void);

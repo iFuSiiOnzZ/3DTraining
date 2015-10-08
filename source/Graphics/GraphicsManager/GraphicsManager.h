@@ -11,6 +11,7 @@ class CGraphicsManager
 		HGLRC   m_pRenderContext;
 		HWND    m_pWndInstance;
 
+
     public:
         CGraphicsManager        (void);
         ~CGraphicsManager       (void);
@@ -20,4 +21,7 @@ class CGraphicsManager
 
         HDC     GetDevice       (void);
         HGLRC   GetRender       (void);
+
+        HWND    GetWindow       (void);
+        void    GetWindowSize   (unsigned int &l_Width, unsigned int &l_Height);
 };

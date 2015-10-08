@@ -5,9 +5,11 @@
 template <class T> class CFrustum : public CMatrix4<T>
 {
     public:
+        CFrustum<T>     (void);
         CFrustum<T>     (float fovAngle, float aspectRatio, float zNear, float zFar);
         CFrustum<T>     (float fLeft, float fRight, float fTop, float fBottom, float fNear, float fFar);
 
+        void setFrustum (float fovAngle, float aspectRatio, float zNear, float zFar);
         void setFrustum (float fLeft, float fRight, float fTop, float fBottom, float fNear, float fFar);
 };
 

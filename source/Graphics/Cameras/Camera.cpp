@@ -12,7 +12,7 @@ CCamera::CCamera()
     m_3DCameraInfo = NULL;
 }
 
-CCamera::CCamera(float l_Fov, float l_ZNear, float l_ZFar, CObject3D &l_3DCameraInfo, ECameraType l_CameraType)
+CCamera::CCamera(float l_Fov, float l_ZNear, float l_ZFar, CObject3D *l_3DCameraInfo, ECameraType l_CameraType)
 {
     m_ZFar = l_ZFar;
     m_ZNear = l_ZNear;
@@ -20,7 +20,7 @@ CCamera::CCamera(float l_Fov, float l_ZNear, float l_ZFar, CObject3D &l_3DCamera
     m_Fov = DEG2RAD(l_Fov);
 
     m_CameraType = l_CameraType;
-    m_3DCameraInfo = &l_3DCameraInfo;
+    m_3DCameraInfo = l_3DCameraInfo;
 }
 
 CCamera::~CCamera()

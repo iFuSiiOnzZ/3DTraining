@@ -24,7 +24,9 @@ class CShader
         unsigned int     GetShaderHandler       (void);
         unsigned int     GetShaderType          (void); 
 
-        bool             LoadShader             (char *shaderPath, unsigned int shaderType);
+        bool             LoadShader             (const std::string &l_ShaderPath);
+        bool             CreateShader           (unsigned int l_ShaderType);
+        void             ReleaseShader          (void);
 
         std::string      GetError               (void);
         bool             isLoaded               (void);

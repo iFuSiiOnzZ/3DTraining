@@ -33,11 +33,11 @@ class CTimer
         CTimer                      (unsigned int fpsControl);
         ~CTimer                     (void);
 
-        void	update              (void);
+        void	Update              (void);
 
-        float   getFrames           (void);
-        float   getSpeedFactor      (void);
-        float	getFrameTimeInMs	(void);
+        float   GetFrames           (void);
+        float   GetSpeedFactor      (void);
+        float	GetFrameTimeInMs	(void);
 
-        bool    endOfTime           (const std::string &object, float ms);
+        bool    EndOfTime           (const std::string &object, float ms);
 };

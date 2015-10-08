@@ -21,7 +21,7 @@ class CTexture
     public:
         CTexture(void);
         ~CTexture(void);
-        
+     
         bool SetTexture(char *l_pData, unsigned int l_iWidth, unsigned int l_iHeight, unsigned int l_iNumBytesColor);
         void SetUnit(unsigned int l_iTextureUnit);
 
@@ -31,4 +31,3 @@ class CTexture
         void UnUse(void);
         void Use(void);
 };
-

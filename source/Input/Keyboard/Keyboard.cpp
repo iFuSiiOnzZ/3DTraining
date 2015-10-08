@@ -17,13 +17,13 @@ void CKeyboard::Execute(void)
 void CKeyboard::AddKey(const std::string &l_Name, unsigned int l_Key)
 {
     CRWWriteAutoLock l_Lock(m_RWLock);
-    m_KeyMap.add(l_Name, std::pair<unsigned int, bool>(l_Key, false));
+    m_KeyMap.Add(l_Name, std::pair<unsigned int, bool>(l_Key, false));
 }
 
 void CKeyboard::Update(void)
 {	
     CRWReadAutoLock l_Lock(m_RWLock);
-    KeyMapType::HashMapType &l_HashMap = m_KeyMap.getHashMap();
+    KeyMapType::HashMapType &l_HashMap = m_KeyMap.GetHashMap();
     
     for(KeyMapType::HashMapType::iterator it = l_HashMap.begin(); it != l_HashMap.end(); it++)
 	{
