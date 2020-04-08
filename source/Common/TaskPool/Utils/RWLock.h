@@ -27,4 +27,4 @@ class CRWLock
         void WriteUnLock (void);
 };
 
-#endif 
+#endif

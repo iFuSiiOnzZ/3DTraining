@@ -1,13 +1,8 @@
 #include "./Process.h"
 
-CProcess::CProcess(CGraphicsManager *l_pGraphicsManager)
+CProcess::CProcess(CGraphicsManager *graphicsManager)
 {
-    m_pGraphicsManager = l_pGraphicsManager;
-}
-
-CProcess::~CProcess(void)
-{
-
+    m_pGraphicsManager = graphicsManager;
 }
 
 void CProcess::Release(void)

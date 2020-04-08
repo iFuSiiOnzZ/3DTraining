@@ -7,9 +7,9 @@ template <class T> class CLookAt : public CMatrix4<T>
 {
     public:
         CLookAt         (void);
-        CLookAt         (CVector4<T> &eyePos, CVector4<T> &lookAt, CVector4<T> &upVector);
+        CLookAt         (const CVector4<T> &eyePos, const CVector4<T> &lookAt, const CVector4<T> &upVector);
 
-        void setLookAt  (CVector4<T> &eyePos, CVector4<T> &lookAt, CVector4<T> &upVector);
+        void setLookAt  (const CVector4<T> &eyePos, const CVector4<T> &lookAt, const CVector4<T> &upVector);
 };
 
 typedef CLookAt<double> CLookAtd;

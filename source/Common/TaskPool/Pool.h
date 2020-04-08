@@ -23,12 +23,12 @@ class CPool
         CPool  (void);
         ~CPool (void);
 
-        void                Init            (unsigned int l_NumThreads = 0);
-        void                AddTask         (CTask *l_pTask);
+        void                Init            (unsigned int numThreads = 0);
+        void                AddTask         (CTask *task);
 
         void                ThreadStop      (void);
         void                WaitForWorkers  (void);
 
         DWORD                MainThread     (void);
-        static DWORD WINAPI  ThreadStart    (void *l_pParam);
+        static DWORD WINAPI  ThreadStart    (void *param);
 };

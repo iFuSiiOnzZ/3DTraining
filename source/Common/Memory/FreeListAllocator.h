@@ -6,22 +6,22 @@ class CFreeListAllocator : public CAllocator
     private:
         struct AllocHeader
         {
-            unsigned int m_Size;
-            unsigned int m_Alignment;
+            size_t m_Size;
+            size_t m_Alignment;
         };
 
         struct FreeBlock
         {
-            unsigned int m_Size;
+            size_t m_Size;
             FreeBlock *m_Next;
         };
 
         struct FreeBlock *m_FreeBlocks;
 
     public:
-        CFreeListAllocator(unsigned int l_Size, void *l_MemAddress);
+        CFreeListAllocator(size_t size, void *memAddress);
         ~CFreeListAllocator();
 
-        void *Allocate(unsigned int l_Size, unsigned int l_Alignment);
-        void  Deallocate(void *l_MemAddress);
+        void *Allocate(size_t size, size_t alignment);
+        void  Deallocate(void *memAddress);
 };

@@ -1,9 +1,9 @@
 #include "Allocator.h"
 
-CAllocator::CAllocator(unsigned int l_Size, void *l_MemAddress)
+CAllocator::CAllocator(size_t size, void *memAddress)
 {
-    m_Size = l_Size;
-    m_MemAddress = l_MemAddress;
+    m_Size = size;
+    m_MemAddress = memAddress;
 
     m_UsedMemory = 0;
     m_NumAllocations = 0;
@@ -18,17 +18,17 @@ CAllocator::~CAllocator()
     m_NumAllocations = 0;
 }
 
-unsigned int CAllocator::GetSize(void)
+size_t CAllocator::GetSize(void)
 {
     return m_Size;
 }
 
-unsigned int CAllocator::GetUsedMemory(void)
+size_t CAllocator::GetUsedMemory(void)
 {
     return m_UsedMemory;
 }
 
-unsigned int CAllocator::GetNumAllocations(void)
+size_t CAllocator::GetNumAllocations(void)
 {
     return m_NumAllocations;
 }

@@ -21,12 +21,15 @@ class CTexture
     public:
         CTexture(void);
         ~CTexture(void);
-     
-        bool SetTexture(char *l_pData, unsigned int l_iWidth, unsigned int l_iHeight, unsigned int l_iNumBytesColor);
-        void SetUnit(unsigned int l_iTextureUnit);
 
-        void SetRepeate(bool l_bRepeat);
-        void SetSmooth(bool l_bSmoth);
+        CTexture &SetTexture(unsigned char *data, unsigned int width, unsigned int height, unsigned int numBytesColor);
+        CTexture &SetUnit(unsigned int rextureUnit);
+
+        CTexture &SetRepeate(bool repeat);
+        CTexture &SetSmooth(bool smoth);
+
+        inline unsigned int GetTextureUnit() { return m_TextureUnit; }
+        inline unsigned int GetTextureId() { return m_TextureId; }
 
         void UnUse(void);
         void Use(void);

@@ -1,14 +1,9 @@
 #include "./Engine.h"
 #include "./Process.h"
 
-CEngine::CEngine(CProcess *l_pProcess)
+CEngine::CEngine(CProcess *process)
 {
-    m_pProcess = l_pProcess;
-}
-
-CEngine::~CEngine(void)
-{
-
+    m_pProcess = process;
 }
 
 void CEngine::Release(void)

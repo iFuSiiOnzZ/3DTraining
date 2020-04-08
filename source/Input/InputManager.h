@@ -11,24 +11,25 @@
 
 class CInputManager : public CTask
 {
-	private:
-        CMouse      m_MouseInput;
-        CKeyboard   m_KeyboardInput;
+    private:
         CRWLock     m_RWLock;
 
-	public:
-		~CInputManager	            (void);
-		CInputManager	            (int sWidth, int sHeight, HWND &hWnd);
+        CMouse      m_MouseInput;
+        CKeyboard   m_KeyboardInput;
 
-		void	Update			    (void);
+    public:
+        ~CInputManager              (void) {}
+        CInputManager               (int sWidth, int sHeight, HWND &hWnd);
+
+        void    Update              (void);
         void    Execute             (void);
 
         int     GetDeltaX           (void);
         int     GetDeltaY           (void);
 
         bool    isKeyPressed        (const std::string &l_KeyName);
-        void	AddKey				(const std::string &l_KeyName, unsigned int);
+        void    AddKey              (const std::string &l_KeyName, unsigned int);
 
-		bool	isLeftButtonPress	(void);
-		bool	isRightButtonPress	(void);
+        bool    isLeftButtonPress   (void){};
+        bool    isRightButtonPress  (void){};
 };

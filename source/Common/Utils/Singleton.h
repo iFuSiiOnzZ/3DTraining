@@ -5,7 +5,7 @@ template <typename T> class CSingleton
 {
     protected:
 
-        static T* ms_Singleton; 
+        static T* ms_Singleton;
 
     public:
         CSingleton(void)

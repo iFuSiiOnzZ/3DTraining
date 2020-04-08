@@ -12,17 +12,14 @@ class CKeyboard : public CTask
     public:
         typedef HashMap<std::pair<int, bool>> KeyMapType;
 
-	private:
-        KeyMapType	m_KeyMap;
-        CRWLock m_RWLock;
+    private:
+        KeyMapType m_KeyMap;
 
-	public:
-		CKeyboard				        (void);
-		~CKeyboard				        (void);
+    public:
 
-		void			Update			(void);
-        void            Execute         (void);
+        void Update         (void);
+        void Execute        (void);
 
-		void			AddKey			(const std::string &, unsigned int);
-		bool 			isKeyPressed	(const std::string &);
+        void AddKey         (const std::string &, unsigned int);
+        bool isKeyPressed   (const std::string &);
 };

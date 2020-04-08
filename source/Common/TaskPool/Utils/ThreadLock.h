@@ -9,7 +9,7 @@ class CAutoLock
         CMutex *m_pLock;
 
     public:
-        CAutoLock  (CMutex &l_Lock);
+        CAutoLock  (CMutex &lock);
         ~CAutoLock (void);
 };
 
@@ -20,7 +20,7 @@ class COptionalAutoLock
         bool m_bAcquired;
 
     public:
-        COptionalAutoLock  (CMutex &l_Lock, bool l_bAcquired);
+        COptionalAutoLock  (CMutex &lock, bool acquired);
         ~COptionalAutoLock (void);
 
         void Adquire (void);
@@ -33,7 +33,7 @@ class CRWReadAutoLock
         CRWLock *m_pLock;
 
     public:
-        CRWReadAutoLock  (CRWLock &l_Lock);
+        CRWReadAutoLock  (CRWLock &lock);
         ~CRWReadAutoLock (void);
 };
 
@@ -43,6 +43,6 @@ class CRWWriteAutoLock
         CRWLock *m_pLock;
 
     public:
-        CRWWriteAutoLock  (CRWLock &l_Lock);
+        CRWWriteAutoLock  (CRWLock &lock);
         ~CRWWriteAutoLock (void);
 };

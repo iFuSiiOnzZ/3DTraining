@@ -1,6 +1,6 @@
 #include "./ThreadLock.h"
 
-CAutoLock::CAutoLock(CMutex &l_Lock) : m_pLock(&l_Lock)
+CAutoLock::CAutoLock(CMutex &lock) : m_pLock(&lock)
 {
     m_pLock->Lock();
 }
@@ -10,9 +10,9 @@ CAutoLock::~CAutoLock(void)
     m_pLock->UnLock();
 }
 
-COptionalAutoLock::COptionalAutoLock(CMutex &l_Lock, bool l_bAcquired) : m_pLock(&l_Lock), m_bAcquired(false)
+COptionalAutoLock::COptionalAutoLock(CMutex &lock, bool acquired) : m_pLock(&lock), m_bAcquired(false)
 {
-    if(l_bAcquired) Adquire();
+    if(acquired) Adquire();
 }
 
 COptionalAutoLock::~COptionalAutoLock()
@@ -38,7 +38,7 @@ void COptionalAutoLock::Release()
     }
 }
 
-CRWReadAutoLock::CRWReadAutoLock(CRWLock &l_Lock) : m_pLock(&l_Lock)
+CRWReadAutoLock::CRWReadAutoLock(CRWLock &lock) : m_pLock(&lock)
 {
     m_pLock->ReadLock();
 }
@@ -48,7 +48,7 @@ CRWReadAutoLock::~CRWReadAutoLock()
     m_pLock->ReadUnLock();
 }
 
-CRWWriteAutoLock::CRWWriteAutoLock(CRWLock &l_Lock) : m_pLock(&l_Lock)
+CRWWriteAutoLock::CRWWriteAutoLock(CRWLock &lock) : m_pLock(&lock)
 {
     m_pLock->WriteLock();
 }

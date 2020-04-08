@@ -10,6 +10,6 @@ class CTask
         ~CTask  (void) { m_pDependency = 0; }
 
         virtual void Execute        (void) = 0;
-        void         AddDependency  (CTask *l_pDependency)  { m_pDependency = l_pDependency; }
+        void         AddDependency  (CTask *dependency)  { m_pDependency = dependency; }
         CTask        *GetDependency (void)                  { return m_pDependency; }
 };

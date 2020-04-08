@@ -29,15 +29,15 @@ class CTimer
         void updateFrames           (void);
         void updateObjectTimer      (void);
 
-	public:
+    public:
         CTimer                      (unsigned int fpsControl);
         ~CTimer                     (void);
 
-        void	Update              (void);
+        void    Update              (void);
 
         float   GetFrames           (void);
         float   GetSpeedFactor      (void);
-        float	GetFrameTimeInMs	(void);
+        float   GetFrameTimeInMs    (void);
 
         bool    EndOfTime           (const std::string &object, float ms);
 };

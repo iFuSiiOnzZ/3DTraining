@@ -15,6 +15,9 @@ class CAllocatorManager : public CSingleton<CAllocatorManager>
         CAllocatorManager();
         ~CAllocatorManager();
 
-        CLinearAllocator    *m_pLinearAllocator;
-        CFreeListAllocator  *m_pFreeListAllocator;
+        CLinearAllocator    *linearAllocator;
+        CFreeListAllocator  *freeListAllocator;
 };
+
+#define ALLOCATOR_LINEAR    CAllocatorManager::GetSingletonPtr()->linearAllocator
+#define ALLOCATOR_FREE_LIST CAllocatorManager::GetSingletonPtr()->freeListAllocator

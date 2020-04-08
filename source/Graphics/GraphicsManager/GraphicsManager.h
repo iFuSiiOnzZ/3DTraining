@@ -8,9 +8,8 @@ class CGraphicsManager
 {
     private:
         HDC     m_pDeviceContext;
-		HGLRC   m_pRenderContext;
-		HWND    m_pWndInstance;
-
+        HGLRC   m_pRenderContext;
+        HWND    m_pWndInstance;
 
     public:
         CGraphicsManager        (void);
@@ -19,9 +18,9 @@ class CGraphicsManager
         bool    Init            (const HWND &hWnd, bool vSync);
         bool    Release         (void);
 
-        HDC     GetDevice       (void);
-        HGLRC   GetRender       (void);
+        inline HDC   GetDevice() { return m_pDeviceContext; }
+        inline HGLRC GetRender() { return m_pRenderContext; }
 
-        HWND    GetWindow       (void);
-        void    GetWindowSize   (unsigned int &l_Width, unsigned int &l_Height);
+        inline HWND  GetWindow       (void) { return m_pWndInstance; }
+        void         GetWindowSize   (unsigned int &l_Width, unsigned int &l_Height);
 };

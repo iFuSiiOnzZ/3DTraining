@@ -2,21 +2,26 @@
 
 #include <string>
 
-bool FileGetContent(const std::string &l_FilePath, std::string &l_OutFileContent)
+static bool FileGetContent(const std::string &filePath, std::string &outFileContent)
 {
-    FILE *l_pFile = NULL;
-    char l_pFileContent[256] = { 0 };
+    FILE *fileHandler = NULL;
+    char fileContent[256] = { 0 };
 
-    if (fopen_s(&l_pFile, l_FilePath.c_str(), "rt") != 0)
+    if (fopen_s(&fileHandler, filePath.c_str(), "rt") != 0)
     {
         return false;
     }
 
-    while (fgets(l_pFileContent, 256, l_pFile))
+    while (fgets(fileContent, 256, fileHandler))
     {
-        l_OutFileContent.append(l_pFileContent);
+        outFileContent.append(fileContent);
     }
 
-    fclose(l_pFile);
+    fclose(fileHandler);
     return true;
+}
+
+static std::string BaseName(const std::string &path)
+{
+    return path.substr(path.find_last_of("/\\") + 1);
 }

@@ -8,7 +8,7 @@ class CConditionVarible
         CConditionVarible  (void);
         ~CConditionVarible (void);
 
-        void Sleep   (CMutex &l_Mutex);
+        void Sleep   (CMutex &mutex);
 
         void Wake    (void);
         void WakeAll (void);

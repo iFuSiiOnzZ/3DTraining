@@ -4,14 +4,14 @@
 
 class CProcess
 {
-	protected:
+    protected:
         CGraphicsManager *m_pGraphicsManager;
 
-	public:
-        CProcess  (CGraphicsManager *l_pGraphicsManager);
-        ~CProcess (void);
+    public:
+        CProcess  (CGraphicsManager *graphicsManager);
+        virtual ~CProcess (void) {}
 
-		virtual void Update (void) = 0;
+        virtual void Update (void) = 0;
         virtual void Render (void) = 0;
 
         virtual void Init    (void);

@@ -9,9 +9,9 @@ CConditionVarible::~CConditionVarible()
 {
 }
 
-void CConditionVarible::Sleep(CMutex &l_Mutex)
+void CConditionVarible::Sleep(CMutex &mutex)
 {
-    SleepConditionVariableCS(&m_ConditionVariable, &l_Mutex.m_CriticalSection, INFINITE);
+    SleepConditionVariableCS(&m_ConditionVariable, &mutex.m_CriticalSection, INFINITE);
 }
 
 void CConditionVarible::Wake(void)

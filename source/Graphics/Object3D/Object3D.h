@@ -6,8 +6,6 @@
 class CObject3D
 {
     protected:
-        CMatrix4f m_Transform;
-
         CVector4f m_Position;
         CVector4f m_Scale;
 
@@ -30,7 +28,9 @@ class CObject3D
         void SetPosition (const CVector4f &Postion);
         void SetScale    (const CVector4f &Scale);
 
-        CMatrix4f &GetTransform   (void);
-        CVector4f &GetPosition    (void);
-        CVector4f &GetScale       (void);
+        CMatrix4f GetTransform  (void);
+        CMatrix4f GetRotation   (void);
+
+        CVector4f &GetPosition  (void);
+        CVector4f &GetScale     (void);
 };
