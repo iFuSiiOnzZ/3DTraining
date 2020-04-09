@@ -9,7 +9,7 @@ class CTexture;
 
 struct CRenderableObject
 {
-    CTexture *TKa, *TKd, *TKs;
+    CTexture *TKa, *TKd, *TKs, *Bump, *Disp;
     CRenderableVertex *mesh;
     CVector3f Ka, Kd, Ks;
 
