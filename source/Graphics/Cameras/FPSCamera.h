@@ -9,6 +9,7 @@ class CFPSCamera : public CCamera
     private:
         CInputManager *m_InputManager;
         CTimer        *m_Timer;
+        float         m_Speed;
 
     public:
         CFPSCamera(void);
