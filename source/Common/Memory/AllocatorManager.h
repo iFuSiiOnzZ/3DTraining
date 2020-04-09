@@ -11,6 +11,10 @@ class CAllocatorManager : public CSingleton<CAllocatorManager>
         void *m_pLinearAllocatorMem;
         void *m_pFreeListAllocatorMem;
 
+    private:
+        CAllocatorManager(const CAllocatorManager &);
+        CAllocatorManager &operator=(const CAllocatorManager &);
+
     public:
         CAllocatorManager();
         ~CAllocatorManager();

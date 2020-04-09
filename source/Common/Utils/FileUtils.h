@@ -21,7 +21,19 @@ static bool FileGetContent(const std::string &filePath, std::string &outFileCont
     return true;
 }
 
-static std::string BaseName(const std::string &path)
+static std::string FileGetPath(const std::string &file)
+{
+    size_t lastSlash = file.find_last_of("/\\");
+
+    if (lastSlash == std::string::npos)
+    {
+        return "./";
+    }
+
+    return file.substr(0, lastSlash + 1);
+}
+
+static std::string FileGetBaseName(const std::string &path)
 {
     return path.substr(path.find_last_of("/\\") + 1);
 }

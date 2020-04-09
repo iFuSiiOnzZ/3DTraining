@@ -9,6 +9,8 @@
 class CTexture
 {
     private:
+        std::string m_Name;
+
         unsigned int m_TextureUnit;
         unsigned int m_TextureId;
 
@@ -30,6 +32,9 @@ class CTexture
 
         inline unsigned int GetTextureUnit() { return m_TextureUnit; }
         inline unsigned int GetTextureId() { return m_TextureId; }
+
+        inline void SetName(const std::string &name) { m_Name = name; }
+        inline const std::string &GetName() { return m_Name; }
 
         void UnUse(void);
         void Use(void);
