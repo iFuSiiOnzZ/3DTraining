@@ -22,7 +22,7 @@ struct CRenderableObject
     ~CRenderableObject();
 
     void bind(CShaderProgram &shaderProgram);
-    void unbind();
+    void unbind(CShaderProgram &shaderProgram);
     void render();
 
     static std::vector<CRenderableObject> *loadObject(const char *filename);
