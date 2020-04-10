@@ -11,4 +11,8 @@ namespace CDebugRender
     void DrawLine       (const CVector4f &start, const CVector4f &end, const CVector4f &color);
     void DrawGrid       (int nLines, float sz, const CVector4f &color);
     void DrawAxis       (const CVector4f &origin, float sz);
+    void DrawCube       (float x, float y, float z);
+
+    int TakeScreenShot  (const char *filename);
+
 };
