@@ -1,5 +1,6 @@
 #pragma once
 
+#include "Common/Math/Matrix/Matrix.h"
 #include "Common/Math/Vector/Vector.h"
 #include <vector>
 
@@ -9,9 +10,10 @@ class CTexture;
 
 struct CRenderableObject
 {
-    CTexture *TKa, *TKd, *TKs, *Bump, *Disp;
-    CRenderableVertex *mesh;
+    CMatrix4f transform;
     CVector3f Ka, Kd, Ks;
+    CRenderableVertex *mesh;
+    CTexture *TKa, *TKd, *TKs, *Bump;
 
     float Ns, Ni, d;
     int illumModel;
