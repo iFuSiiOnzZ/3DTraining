@@ -2,7 +2,7 @@
 
 #include <string>
 
-static bool FileGetContent(const std::string &filePath, std::string &outFileContent)
+static inline bool FileGetContent(const std::string &filePath, std::string &outFileContent)
 {
     FILE *fileHandler = NULL;
     char fileContent[256] = { 0 };
@@ -21,7 +21,7 @@ static bool FileGetContent(const std::string &filePath, std::string &outFileCont
     return true;
 }
 
-static std::string FileGetPath(const std::string &file)
+static inline std::string FileGetPath(const std::string &file)
 {
     size_t lastSlash = file.find_last_of("/\\");
 
@@ -33,7 +33,7 @@ static std::string FileGetPath(const std::string &file)
     return file.substr(0, lastSlash + 1);
 }
 
-static std::string FileGetBaseName(const std::string &path)
+static inline std::string FileGetBaseName(const std::string &path)
 {
     return path.substr(path.find_last_of("/\\") + 1);
 }
