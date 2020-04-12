@@ -6,10 +6,12 @@ template <class T> class CTranslation : public CMatrix4<T>
 {
     public:
         CTranslation        (const CVector4<T> &newPos);
+        CTranslation        (const CVector3<T> &newPos);
         CTranslation        (T x, T y, T z);
         CTranslation        (void);
 
         void setTranslation (const CVector4<T> &newPos);
+        void setTranslation (const CVector3<T> &newPos);
         void setTranslation (T x, T y, T z);
 };
 
