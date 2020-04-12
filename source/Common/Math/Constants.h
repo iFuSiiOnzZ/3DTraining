@@ -6,25 +6,42 @@
 #define CONSTANTS_TWO_PI    (CONSTANTS_PI * 2.0f)
 #define CONSTANTS_HALF_PI   (CONSTANTS_PI * 0.5f)
 
-#define MAX(a, b) (((a) > (b)) ? (a) : (b))
-#define MIN(a, b) (((a) < (b)) ? (a) : (b))
-
-#define DEG2RAD(d) ((d) * (CONSTANTS_PI / 180.0f))
-#define RAD2DEG(r) ((r) * (180.0f / CONSTANTS_PI))
-
-#define ARRAYCOUNT(v) (sizeof(v) / sizeof((v)[0]))
-
-template <class T> inline T clamp(T l_Val, T l_Min, T l_Max)
+template <class T> static inline T DEG2RAD(T d)
 {
-    return l_Val < l_Min ? l_Min : l_Val < l_Max ? l_Val : l_Max;
+    return (T)(d * (CONSTANTS_PI / 180.0));
 }
 
-template <class T> inline T random(T l_Start, T l_End)
+template <class T> static inline T RAD2DEG(T d)
 {
-    return (T) (rand() * (l_End - l_Start) + l_Start);
+    return (T)(d * (180.0 / CONSTANTS_PI));
 }
 
-template <class T> inline T random(T l_Range)
+template <class T, size_t sz> size_t GetNumElements(T(&)[sz])
 {
-    return (T)(rand() * l_Range);
+    return sz;
+}
+
+template <class T> static inline T MAX(const T &a, const T &b)
+{
+    return a > b ? a : b;
+}
+
+template <class T> static inline T MIN(const T &a, const T &b)
+{
+    return a < b ? a : b;
+}
+
+template <class T> static inline T CLAMP(const T &min, const T &val, const T &max)
+{
+    return MIN(MAX(min, val), max);
+}
+
+template <class T> static inline T random(T start, T end)
+{
+    return (T) (rand() * (end - start) + start);
+}
+
+template <class T> static inline T random(T range)
+{
+    return (T)(rand() * range);
 }
