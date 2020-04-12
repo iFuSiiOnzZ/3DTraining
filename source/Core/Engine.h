@@ -1,6 +1,7 @@
 #pragma once
 
 class CProcess;
+struct S_PLATFORM;
 
 class CEngine
 {
@@ -11,7 +12,7 @@ class CEngine
         CEngine  (CProcess *process);
         virtual ~CEngine (void) {}
 
-        void Update (void);
+        void Update (const S_PLATFORM *platform);
         void Render (void);
 
         void Init    (void);

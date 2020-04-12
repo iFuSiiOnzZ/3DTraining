@@ -16,9 +16,9 @@ void CEngine::Init(void)
     m_pProcess->Init();
 }
 
-void CEngine::Update(void)
+void CEngine::Update(const S_PLATFORM *platform)
 {
-    m_pProcess->Update();
+    m_pProcess->Update(platform);
 }
 
 void CEngine::Render(void)
