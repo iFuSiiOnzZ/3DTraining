@@ -6,20 +6,46 @@
 #include <cstring>
 #include <string>
 
-class CDepthMap
+class CDirectionalDepthMap
 {
     private:
         unsigned int depthMapFBO;
         unsigned int depthMap;
 
     public:
-        CDepthMap();
-        ~CDepthMap(void);
+        CDirectionalDepthMap();
+        ~CDirectionalDepthMap(void);
 
         void useTexture(int textureUnit);
-        bool GenerateDepth(int x, int y);
-        inline bool isValid() { return depthMapFBO != 0; }
+        bool Create(int x, int y);
 
-        void UnUse(void);
-        void Use(void);
+        void Unbind(void);
+        void Bind(void);
+
+        inline bool isValid()
+        {
+            return depthMapFBO != 0;
+        }
+};
+
+class CPointDepthMap
+{
+private:
+    unsigned int depthMapFBO;
+    unsigned int depthCubeMap;
+
+public:
+    CPointDepthMap();
+    ~CPointDepthMap(void);
+
+    void useTexture(int textureUnit);
+    bool Create(int x, int y);
+
+    void Unbind(void);
+    void Bind();
+
+    inline bool isValid()
+    {
+        return depthMapFBO != 0;
+    }
 };

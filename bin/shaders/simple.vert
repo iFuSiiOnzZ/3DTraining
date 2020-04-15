@@ -9,7 +9,7 @@ out VS_OUT
     vec2 uv;
     vec3 vertex;
     vec3 normal;
-    vec4 fragLightSpace;
+    vec4 vertexLightSpace;
 } vs_out;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -23,7 +23,7 @@ void main()
     vs_out.normal = vec3(transpose(inverse(modelMatrix)) * vec4(normal, 0.0));
 
     vs_out.vertex = vec3(modelMatrix * vec4(vertex, 1.0));
-    vs_out.fragLightSpace = lightSpaceMatrix * vec4(vs_out.vertex, 1.0);
+    vs_out.vertexLightSpace = lightSpaceMatrix * vec4(vs_out.vertex, 1.0);
 
     gl_Position = projViewMatrix * vec4(vs_out.vertex, 1.0);
 }

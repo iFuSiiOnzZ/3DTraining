@@ -1,10 +1,12 @@
 #include "./Object3D.h"
 
-CObject3D::CObject3D(void) :  m_Position(0, 0, 0), m_Scale(1, 1, 1)
+CObject3D::CObject3D(void)
+    : m_Position(0, 0, 0)
+    , m_Scale(1, 1, 1)
+    , m_Yaw(0.0f)
+    , m_Roll(0.0f)
+    , m_Pitch(0.0f)
 {
-    m_Yaw = 0.0f;
-    m_Roll = 0.0f;
-    m_Pitch = 0.0f;
 }
 
 CMatrix4f CObject3D::GetTransform(void)
