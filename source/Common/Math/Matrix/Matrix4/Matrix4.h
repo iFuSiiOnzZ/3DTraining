@@ -6,7 +6,11 @@
 template <class T> class CMatrix4
 {
     public:
-        T m_pMatrix4[16];
+        union
+        {
+            T m_pMatrix4[16];
+            T biDimMax4[4][4];
+        };
 
         CMatrix4<T>            (void);
         void setIdentity       (void);
