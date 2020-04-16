@@ -28,15 +28,15 @@ class CDirectionalDepthMap
         }
 };
 
-class CPointDepthMap
+class COmnidirectionalDepthMap
 {
 private:
     unsigned int depthMapFBO;
     unsigned int depthCubeMap;
 
 public:
-    CPointDepthMap();
-    ~CPointDepthMap(void);
+    COmnidirectionalDepthMap();
+    ~COmnidirectionalDepthMap(void);
 
     void useTexture(int textureUnit);
     bool Create(int x, int y);
