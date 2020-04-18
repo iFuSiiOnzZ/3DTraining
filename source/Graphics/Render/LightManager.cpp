@@ -24,6 +24,9 @@ S_LIGHT *CLightManger::addPointLight(bool genShadowMap)
     m_PointLigts.emplace_back(S_LIGHT());
     S_LIGHT *l = &m_PointLigts.back();
 
+    l->isDynamic = false;
+    l->enableShadow = false;
+
     l->constant = 1.0f;
     l->linear = 0.0f;
     l->exp = 0.1f;
