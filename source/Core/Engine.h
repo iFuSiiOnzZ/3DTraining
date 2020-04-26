@@ -13,8 +13,8 @@ class CEngine
         virtual ~CEngine (void) {}
 
         void Update (const S_PLATFORM *platform);
-        void Render (void);
+        void Render (const S_PLATFORM *platform);
 
-        void Init    (void);
-        void Release (void);
+        void Init    (const S_PLATFORM *platform);
+        void Release (const S_PLATFORM *platform);
 };

@@ -5,12 +5,5 @@ CProcess::CProcess(CGraphicsManager *graphicsManager)
     m_pGraphicsManager = graphicsManager;
 }
 
-void CProcess::Release(void)
-{
-
-}
-
-void CProcess::Init(void)
-{
-
-}
+void CProcess::Release(const S_PLATFORM *) { }
+void CProcess::Init(const S_PLATFORM *) { }

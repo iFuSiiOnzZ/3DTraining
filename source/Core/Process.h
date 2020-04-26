@@ -15,8 +15,8 @@ class CProcess
         virtual ~CProcess (void) {}
 
         virtual void Update (const S_PLATFORM *platform) = 0;
-        virtual void Render (void) = 0;
+        virtual void Render (const S_PLATFORM *platform) = 0;
 
-        virtual void Init    (void);
-        virtual void Release (void);
+        virtual void Init    (const S_PLATFORM *platform);
+        virtual void Release (const S_PLATFORM *platform);
 };

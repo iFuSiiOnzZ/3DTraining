@@ -6,14 +6,14 @@ CEngine::CEngine(CProcess *process)
     m_pProcess = process;
 }
 
-void CEngine::Release(void)
+void CEngine::Release(const S_PLATFORM *platform)
 {
-    m_pProcess->Release();
+    m_pProcess->Release(platform);
 }
 
-void CEngine::Init(void)
+void CEngine::Init(const S_PLATFORM *platform)
 {
-    m_pProcess->Init();
+    m_pProcess->Init(platform);
 }
 
 void CEngine::Update(const S_PLATFORM *platform)
@@ -21,7 +21,7 @@ void CEngine::Update(const S_PLATFORM *platform)
     m_pProcess->Update(platform);
 }
 
-void CEngine::Render(void)
+void CEngine::Render(const S_PLATFORM *platform)
 {
-    m_pProcess->Render();
+    m_pProcess->Render(platform);
 }
