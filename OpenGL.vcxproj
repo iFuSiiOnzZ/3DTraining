@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{6EAF69AB-E949-4B79-9149-0936A4F5DE23}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>OpenGL</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>$(SolutionDir)bin\</OutDir>
+    <IntDir>$(SolutionDir)build\$(Configuration)\$(Platform)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)source;$(SolutionDir)libs\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\glew\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(ProjectDir)libs\glew\bin\Release\$(Platform)\glew32.dll $(ProjectDir)\bin\
+xcopy /Y $(ProjectDir)libs\xinput\$(Platform)\XInput9_1_0.dll $(ProjectDir)\bin\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level4</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>_DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <DebugInformationFormat>OldStyle</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(SolutionDir)source;$(SolutionDir)libs\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\glew\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(ProjectDir)libs\glew\bin\Release\$(Platform)\glew32.dll $(ProjectDir)\bin\
+xcopy /Y $(ProjectDir)libs\xinput\$(Platform)\XInput9_1_0.dll $(ProjectDir)\bin\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>$(SolutionDir)source;$(SolutionDir)libs\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\glew\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(ProjectDir)libs\glew\bin\Release\$(Platform)\glew32.dll $(ProjectDir)\bin\
+xcopy /Y $(ProjectDir)libs\xinput\$(Platform)\XInput9_1_0.dll $(ProjectDir)\bin\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level4</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <AdditionalIncludeDirectories>$(SolutionDir)source;$(SolutionDir)libs\glew\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>/wd4201 %(AdditionalOptions)</AdditionalOptions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(SolutionDir)libs\glew\lib\Release\$(Platform)\</AdditionalLibraryDirectories>
+    </Link>
+    <PostBuildEvent>
+      <Command>xcopy /Y $(ProjectDir)libs\glew\bin\Release\$(Platform)\glew32.dll $(ProjectDir)\bin\
+xcopy /Y $(ProjectDir)libs\xinput\$(Platform)\XInput9_1_0.dll $(ProjectDir)\bin\</Command>
+    </PostBuildEvent>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="source\Common\Files\obj_loader.cpp" />
+    <ClCompile Include="source\Common\Files\stb_image.c" />
+    <ClCompile Include="source\Common\Files\stb_image_write.c" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Perspective.cpp" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\LookAt.cpp" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Matrix4.cpp" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Orthographic.cpp" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Rotation.cpp" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Scale.cpp" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Translation.cpp" />
+    <ClCompile Include="source\Common\Memory\Allocator.cpp" />
+    <ClCompile Include="source\Common\Memory\AllocatorManager.cpp" />
+    <ClCompile Include="source\Common\Memory\FreeListAllocator.cpp" />
+    <ClCompile Include="source\Common\Memory\LinearAllocator.cpp" />
+    <ClCompile Include="source\Common\Memory\MemLeaks.cpp" />
+    <ClCompile Include="source\Common\Memory\StackAllocator.cpp" />
+    <ClCompile Include="source\Common\TaskPool\Pool.cpp" />
+    <ClCompile Include="source\Common\TaskPool\Utils\ConditionVariable.cpp" />
+    <ClCompile Include="source\Common\TaskPool\Utils\Mutex.cpp" />
+    <ClCompile Include="source\Common\TaskPool\Utils\RWLock.cpp" />
+    <ClCompile Include="source\Common\TaskPool\Utils\ThreadLock.cpp" />
+    <ClCompile Include="source\Common\Timer\Timer.cpp" />
+    <ClCompile Include="source\Core\Engine.cpp" />
+    <ClCompile Include="source\Core\Process.cpp" />
+    <ClCompile Include="source\Graphics\Cameras\Camera.cpp" />
+    <ClCompile Include="source\Graphics\Cameras\FPSCamera.cpp" />
+    <ClCompile Include="source\Graphics\Render\DebugRender.cpp" />
+    <ClCompile Include="source\Graphics\GraphicsManager\GraphicsManager.cpp" />
+    <ClCompile Include="source\Graphics\Object3D\Object3D.cpp" />
+    <ClCompile Include="source\Graphics\Render\LightManager.cpp" />
+    <ClCompile Include="source\Graphics\Shaders\Shader.cpp" />
+    <ClCompile Include="source\Graphics\Shaders\ShaderProgram.cpp" />
+    <ClCompile Include="source\Graphics\Render\DepthMap.cpp" />
+    <ClCompile Include="source\Graphics\Render\Texture.cpp" />
+    <ClCompile Include="source\main.cpp" />
+    <ClCompile Include="source\VideoGame\GameProcess.cpp" />
+    <ClCompile Include="source\VideoGame\RenderableObject.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Common\Files\obj_loader.h" />
+    <ClInclude Include="source\Common\Files\stb_image.h" />
+    <ClInclude Include="source\Common\Files\stb_image_write.h" />
+    <ClInclude Include="source\Common\Math\Constants.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Perspective.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Orthographic.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\LookAt.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Matrix4.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Rotation.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Scale.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Translation.h" />
+    <ClInclude Include="source\Common\Math\Vector\Vector.h" />
+    <ClInclude Include="source\Common\Math\Vector\Vector4\Vector4.h" />
+    <ClInclude Include="source\Common\Memory\Allocator.h" />
+    <ClInclude Include="source\Common\Memory\AllocatorManager.h" />
+    <ClInclude Include="source\Common\Memory\FreeListAllocator.h" />
+    <ClInclude Include="source\Common\Memory\LinearAllocator.h" />
+    <ClInclude Include="source\Common\Memory\MemLeaks.h" />
+    <ClInclude Include="source\Common\Memory\StackAllocator.h" />
+    <ClInclude Include="source\Common\TaskPool\Pool.h" />
+    <ClInclude Include="source\Common\TaskPool\Task.h" />
+    <ClInclude Include="source\Common\TaskPool\Utils\ConditionVariable.h" />
+    <ClInclude Include="source\Common\TaskPool\Utils\Mutex.h" />
+    <ClInclude Include="source\Common\TaskPool\Utils\RWLock.h" />
+    <ClInclude Include="source\Common\TaskPool\Utils\ThreadLock.h" />
+    <ClInclude Include="source\Common\Timer\Timer.h" />
+    <ClInclude Include="source\Common\Utils\FileUtils.h" />
+    <ClInclude Include="source\Common\Utils\HashMap.h" />
+    <ClInclude Include="source\Common\Utils\ResourceManager.h" />
+    <ClInclude Include="source\Common\Utils\Singleton.h" />
+    <ClInclude Include="source\Core\Engine.h" />
+    <ClInclude Include="source\Core\platform.h" />
+    <ClInclude Include="source\Core\Process.h" />
+    <ClInclude Include="source\Graphics\Cameras\Camera.h" />
+    <ClInclude Include="source\Graphics\Cameras\FPSCamera.h" />
+    <ClInclude Include="source\Graphics\Render\DebugRender.h" />
+    <ClInclude Include="source\Graphics\GraphicsManager\GraphicsManager.h" />
+    <ClInclude Include="source\Graphics\Object3D\Object3D.h" />
+    <ClInclude Include="source\Graphics\Render\IndexedVertexs.h" />
+    <ClInclude Include="source\Graphics\Render\LightManager.h" />
+    <ClInclude Include="source\Graphics\Render\RenderableVertex.h" />
+    <ClInclude Include="source\Graphics\Render\VertexType.h" />
+    <ClInclude Include="source\Graphics\Shaders\Shader.h" />
+    <ClInclude Include="source\Graphics\Shaders\ShaderProgram.h" />
+    <ClInclude Include="source\Graphics\Render\DepthMap.h" />
+    <ClInclude Include="source\Graphics\Render\Texture.h" />
+    <ClInclude Include="source\VideoGame\GameProcess.h" />
+    <ClInclude Include="source\VideoGame\RenderableObject.h" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

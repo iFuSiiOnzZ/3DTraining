@@ -1,0 +1,319 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="source">
+      <UniqueIdentifier>{e0ac0313-f214-4158-92a4-ca26a1b7fffe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common">
+      <UniqueIdentifier>{6791d26a-ef57-4fe0-8ec2-0503bea20589}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\FileReader">
+      <UniqueIdentifier>{81d35cab-e0eb-4cc3-8be2-cf261fbc4827}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\FileReader\BMP">
+      <UniqueIdentifier>{3e8e8c4a-2fdc-4ed1-89ad-693b165dbcfb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\FileReader\TGA">
+      <UniqueIdentifier>{9e92219a-f567-4b9e-83ce-f880727ad13d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Memory">
+      <UniqueIdentifier>{18e1bc37-f349-481f-bb3c-072b79e6beaf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Timer">
+      <UniqueIdentifier>{43806421-a7db-48f5-8670-24e73acfc942}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Utils">
+      <UniqueIdentifier>{7dbe479f-e370-4826-a6b2-3277bda37685}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics">
+      <UniqueIdentifier>{f3564e00-06f7-4127-8ce8-c8a62948e283}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\RenderableVertex">
+      <UniqueIdentifier>{000725df-b267-4e42-9aa4-17e5fe454662}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\GraphicsManager">
+      <UniqueIdentifier>{9dcb8624-0c54-4ae6-ac07-97d2df75de9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\TaskPool">
+      <UniqueIdentifier>{b165b97b-6410-4e28-ba94-3364d0567326}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\TaskPool\Utils">
+      <UniqueIdentifier>{fba37f0a-167d-4e15-b224-059a76c8a8d3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Math">
+      <UniqueIdentifier>{5ab9f134-b171-44a0-b89a-f925c8985171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Math\Vector">
+      <UniqueIdentifier>{b8eda31f-a2a4-4f55-889c-dcbac58f4849}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Math\Vector\Vector4">
+      <UniqueIdentifier>{ed0c7757-8b46-4bbf-b88a-86119911ce3c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Math\Matrix">
+      <UniqueIdentifier>{4eee7049-1a57-4a4f-94fb-b20e53e17584}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Common\Math\Matrix\Matrix4">
+      <UniqueIdentifier>{e48edaf4-d7de-4cc4-afdf-e6c08727d5b6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\DebugRender">
+      <UniqueIdentifier>{19f72140-2fa3-495d-b705-33536e315f3f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Input">
+      <UniqueIdentifier>{4905c01f-46b0-4c65-b685-6ac316348b24}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Input\Keyboard">
+      <UniqueIdentifier>{e22c3fb4-1ef9-4fc3-9487-0368eb8cc05e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Input\Mouse">
+      <UniqueIdentifier>{037b5e99-8757-448e-a4a7-b8b8d5b93531}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\Shaders">
+      <UniqueIdentifier>{8ec80809-0f5b-4684-9a92-32ee6ac387a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\Cameras">
+      <UniqueIdentifier>{fc601d7e-1936-43bf-8749-11cc4fe4f7f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\Object3D">
+      <UniqueIdentifier>{52cfd022-8c49-47ad-8fec-4815dbd3ce41}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Graphics\Texture">
+      <UniqueIdentifier>{7969f5c6-994d-4a54-8e1e-ac88c1453d3b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Core">
+      <UniqueIdentifier>{cad9ff11-507e-4d26-b650-cef5a6c5cf25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\Videogame">
+      <UniqueIdentifier>{79f80fc0-aac2-4d0f-ad59-2d192aab35ba}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\main.cpp">
+      <Filter>source</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Memory\MemLeaks.cpp">
+      <Filter>source\Common\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\GraphicsManager\GraphicsManager.cpp">
+      <Filter>source\Graphics\GraphicsManager</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\TaskPool\Pool.cpp">
+      <Filter>source\Common\TaskPool</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\TaskPool\Utils\Mutex.cpp">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Memory\Allocator.cpp">
+      <Filter>source\Common\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Memory\FreeListAllocator.cpp">
+      <Filter>source\Common\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Memory\LinearAllocator.cpp">
+      <Filter>source\Common\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Memory\StackAllocator.cpp">
+      <Filter>source\Common\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\LookAt.cpp">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Matrix4.cpp">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Rotation.cpp">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Scale.cpp">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Translation.cpp">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Timer\Timer.cpp">
+      <Filter>source\Common\Timer</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\TaskPool\Utils\ConditionVariable.cpp">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\TaskPool\Utils\RWLock.cpp">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\TaskPool\Utils\ThreadLock.cpp">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Shaders\Shader.cpp">
+      <Filter>source\Graphics\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Shaders\ShaderProgram.cpp">
+      <Filter>source\Graphics\Shaders</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Object3D\Object3D.cpp">
+      <Filter>source\Graphics\Object3D</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Cameras\Camera.cpp">
+      <Filter>source\Graphics\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Cameras\FPSCamera.cpp">
+      <Filter>source\Graphics\Cameras</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Engine.cpp">
+      <Filter>source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Core\Process.cpp">
+      <Filter>source\Core</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VideoGame\GameProcess.cpp">
+      <Filter>source\Videogame</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Memory\AllocatorManager.cpp">
+      <Filter>source\Common\Memory</Filter>
+    </ClCompile>
+    <ClCompile Include="source\VideoGame\RenderableObject.cpp" />
+    <ClCompile Include="source\Common\Files\obj_loader.cpp" />
+    <ClCompile Include="source\Common\Files\stb_image.c" />
+    <ClCompile Include="source\Common\Files\stb_image_write.c" />
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Perspective.cpp">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Common\Math\Matrix\Matrix4\Orthographic.cpp" />
+    <ClCompile Include="source\Graphics\Render\DebugRender.cpp">
+      <Filter>source\Graphics\DebugRender</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Render\DepthMap.cpp" />
+    <ClCompile Include="source\Graphics\Render\Texture.cpp">
+      <Filter>source\Graphics\Texture</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Graphics\Render\LightManager.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\Common\Memory\MemLeaks.h">
+      <Filter>source\Common\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Utils\HashMap.h">
+      <Filter>source\Common\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\GraphicsManager\GraphicsManager.h">
+      <Filter>source\Graphics\GraphicsManager</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\TaskPool\Pool.h">
+      <Filter>source\Common\TaskPool</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\TaskPool\Task.h">
+      <Filter>source\Common\TaskPool</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\TaskPool\Utils\Mutex.h">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Memory\Allocator.h">
+      <Filter>source\Common\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Memory\FreeListAllocator.h">
+      <Filter>source\Common\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Memory\LinearAllocator.h">
+      <Filter>source\Common\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Memory\StackAllocator.h">
+      <Filter>source\Common\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Constants.h">
+      <Filter>source\Common\Math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Vector\Vector.h">
+      <Filter>source\Common\Math\Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Vector\Vector4\Vector4.h">
+      <Filter>source\Common\Math\Vector\Vector4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix.h">
+      <Filter>source\Common\Math\Matrix</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\LookAt.h">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Matrix4.h">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Rotation.h">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Scale.h">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Translation.h">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Timer\Timer.h">
+      <Filter>source\Common\Timer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\TaskPool\Utils\ConditionVariable.h">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\TaskPool\Utils\RWLock.h">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\TaskPool\Utils\ThreadLock.h">
+      <Filter>source\Common\TaskPool\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Shaders\Shader.h">
+      <Filter>source\Graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Shaders\ShaderProgram.h">
+      <Filter>source\Graphics\Shaders</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Object3D\Object3D.h">
+      <Filter>source\Graphics\Object3D</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Cameras\Camera.h">
+      <Filter>source\Graphics\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Cameras\FPSCamera.h">
+      <Filter>source\Graphics\Cameras</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Engine.h">
+      <Filter>source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Core\Process.h">
+      <Filter>source\Core</Filter>
+    </ClInclude>
+    <ClInclude Include="source\VideoGame\GameProcess.h">
+      <Filter>source\Videogame</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Memory\AllocatorManager.h">
+      <Filter>source\Common\Memory</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Utils\FileUtils.h">
+      <Filter>source\Common\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Utils\Singleton.h">
+      <Filter>source\Common\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="source\VideoGame\RenderableObject.h" />
+    <ClInclude Include="source\Common\Utils\ResourceManager.h" />
+    <ClInclude Include="source\Common\Files\obj_loader.h" />
+    <ClInclude Include="source\Common\Files\stb_image.h" />
+    <ClInclude Include="source\Common\Files\stb_image_write.h" />
+    <ClInclude Include="source\Core\platform.h" />
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Perspective.h">
+      <Filter>source\Common\Math\Matrix\Matrix4</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Common\Math\Matrix\Matrix4\Orthographic.h" />
+    <ClInclude Include="source\Graphics\Render\DebugRender.h">
+      <Filter>source\Graphics\DebugRender</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Render\DepthMap.h" />
+    <ClInclude Include="source\Graphics\Render\Texture.h">
+      <Filter>source\Graphics\Texture</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Render\VertexType.h">
+      <Filter>source\Graphics\RenderableVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Render\RenderableVertex.h">
+      <Filter>source\Graphics\RenderableVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Render\IndexedVertexs.h">
+      <Filter>source\Graphics\RenderableVertex</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Graphics\Render\LightManager.h" />
+  </ItemGroup>
+</Project>
