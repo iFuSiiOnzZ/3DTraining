@@ -28,8 +28,8 @@ S_LIGHT *CLightManger::addPointLight(bool genShadowMap)
     l->enableShadow = false;
 
     l->constant = 1.0f;
-    l->linear = 0.0f;
-    l->exp = 0.1f;
+    l->linear = 5.f;
+    l->exp = 0.01f;
 
     l->fallOff = 0.0f;
     l->angle = 0.0f;

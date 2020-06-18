@@ -11,7 +11,6 @@
 
 ///////////////////////////////////////////////////////////////////////////////
 
-static CVector3f gDirLightPos(5.0f, 20.0f, 2.0f);
 static CMatrix4f dirLightSpaceMatrix;
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -219,25 +218,25 @@ void CGameProcess::Init(const S_PLATFORM *platform)
 
     light = m_LightManager.addPointLight();
     light->position = CVector3f(5.000000f, 6.500000f, -4.528717f);
-    light->ambient  = CVector3f(0.8f, 0.8f, 0.8f);
+    light->ambient  = CVector3f(0.4f, 0.4f, 0.4f);
     light->diffuse  = CVector3f(1.0f, 1.0f, 1.0f);
     light->specular = CVector3f(1.0f, 1.0f, 1.0f);
 
     light = m_LightManager.addPointLight();
     light->position = CVector3f(0.000000f, 6.500000f, -4.528717f);
-    light->ambient  = CVector3f(0.8f, 0.8f, 0.8f);
+    light->ambient  = CVector3f(0.4f, 0.4f, 0.4f);
     light->diffuse  = CVector3f(1.0f, 1.0f, 1.0f);
     light->specular = CVector3f(1.0f, 1.0f, 1.0f);
 
     light = m_LightManager.addPointLight();
     light->position = CVector3f(-5.000000f, 6.500000f, -4.528717f);
-    light->ambient  = CVector3f(0.8f, 0.8f, 0.8f);
+    light->ambient  = CVector3f(0.4f, 0.4f, 0.4f);
     light->diffuse  = CVector3f(1.0f, 1.0f, 1.0f);
     light->specular = CVector3f(1.0f, 1.0f, 1.0f);
 
     light = m_LightManager.addPointLight();
     light->position = CVector3f(-12.000000f, 6.500000f, -4.528717f);
-    light->ambient  = CVector3f(0.8f, 0.8f, 0.8f);
+    light->ambient  = CVector3f(0.4f, 0.4f, 0.4f);
     light->diffuse  = CVector3f(1.0f, 1.0f, 1.0f);
     light->specular = CVector3f(1.0f, 1.0f, 1.0f);
 
@@ -354,7 +353,7 @@ void CGameProcess::Render(const S_PLATFORM *platform)
 
 #if 1
     glLoadMatrixf((m_Camera.GetViewMatrix() * m_PersProj).m_pMatrix4);
-    CDebugRender::DrawCube(gDirLightPos, CVector3f(0.0f, 1.0f, 0.0f));
+    CDebugRender::DrawCube(m_LightManager.getDirectionalLight()->position, CVector3f(0.0f, 1.0f, 0.0f));
 
     for (size_t i = 0; i < m_LightManager.getNumberOfPointLigts(); ++i)
     {
