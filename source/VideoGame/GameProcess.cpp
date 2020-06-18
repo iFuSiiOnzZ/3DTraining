@@ -117,9 +117,11 @@ void CGameProcess::Init(const S_PLATFORM *platform)
 
     ///////////////////////////////////////////////////////////////////////////
 
-    m_Camera.SetPosition(CVector3f(0.0f, 5.0f, 0.0f));
-    m_Camera.SetLookAt(m_Camera.GetPosition() + CVector3f(1.0, 0.0f, 0.0f));
+    m_Camera.SetPosition(CVector3f(5.0f, 20.0f, 2.0f));
+    m_Camera.SetLookAt(CVector3f(0.0, 0.0f, 0.0f));
+
     m_PersProj.set(m_Camera.GetFov(), 16.0f / 9.0f, m_Camera.GetZNear(), m_Camera.GetZFar());
+    m_OrthProj.set(16.0f / 9.0f, 5, 5, m_Camera.GetZNear(), m_Camera.GetZFar());
 
     m_RenderableObject = CRenderableObject::loadObject("./models/sponza/sponza.obj");
 

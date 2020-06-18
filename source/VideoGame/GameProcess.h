@@ -35,6 +35,7 @@ class CGameProcess : public CProcess
         CFPSCamera m_Camera;
         CTimer m_Timer;
 
+        COrthographicProjectionf m_OrthProj;
         CPerspectiveProjectionf m_PersProj;
 
         CShaderProgram m_DebugQuad;

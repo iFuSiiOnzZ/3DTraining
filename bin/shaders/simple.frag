@@ -34,7 +34,6 @@ struct PointLight
 
     samplerCube shadowMap;
     bool hasShadow;
-
 };
 
 struct DirectionalLight
@@ -61,7 +60,7 @@ struct SpotLight
 struct PointLightUniform
 {
     int counter;
-    PointLight lights[96];
+    PointLight lights[64];
 };
 
 in VS_OUT
@@ -103,20 +102,45 @@ float fnc_get_specular(vec3 viewPos, vec3 vertexPos, vec3 lightDir, vec3 vertexN
     return pow(max(dot(viewDir, reflectDir), 0.0), 32);
 }
 
-float fnc_sample_shadow_map_linear(sampler2D shadowMap, vec2 coord, vec2 texelSize)
+float fnc_sample_show_map(sampler2D shadowMap, vec2 coords, float compare)
 {
-    vec2 pixelPos = coord / texelSize + vec2(0.5);
+    return step(compare, texture(shadowMap, coords).r);
+}
+
+float fnc_sample_shadow_map_linear(sampler2D shadowMap, vec2 coords, vec2 texelSize, float compare)
+{
+    vec2 pixelPos = (coords / texelSize) + vec2(0.5);
     vec2 fracPart = fract(pixelPos), startTexel = (pixelPos - fracPart) * texelSize;
 
-    float brTexel = texture(shadowMap, startTexel).r;
-    float blTexel = texture(shadowMap, startTexel + vec2(texelSize.x, 0)).r;
-    float trTexel = texture(shadowMap, startTexel + vec2(0, texelSize.y)).r;
-    float tlTexel = texture(shadowMap, startTexel + texelSize).r;
+    float brTexel = fnc_sample_show_map(shadowMap, startTexel, compare);
+    float blTexel = fnc_sample_show_map(shadowMap, startTexel + vec2(texelSize.x, 0), compare);
+    float trTexel = fnc_sample_show_map(shadowMap, startTexel + vec2(0, texelSize.y), compare);
+    float tlTexel = fnc_sample_show_map(shadowMap, startTexel + texelSize, compare);
 
-    float mixA = mix(blTexel, tlTexel, fracPart.y);
-    float mixB = mix(brTexel, trTexel, fracPart.y);
+    float mixA = mix(blTexel, brTexel, fracPart.x);
+    float mixB = mix(tlTexel, trTexel, fracPart.x);
 
-    return mix(mixA, mixB, fracPart.x);
+    return mix(mixA, mixB, fracPart.y);
+}
+
+float fnc_sample_shadow_map_pfc(sampler2D shadowMap, vec2 coords, vec2 texelSize, float compare)
+{
+    const float NUM_SAMPLES = 3.0f;
+    const float SAMPLES_START = (NUM_SAMPLES - 1.0f) / 2.0f;
+    const float NUM_SAMPLES_SQUARED = NUM_SAMPLES * NUM_SAMPLES;
+
+    float result = 0.0f;
+    for(float y = -SAMPLES_START; y <= SAMPLES_START; y += 1.0f)
+    {
+        for(float x = -SAMPLES_START; x <= SAMPLES_START; x += 1.0f)
+        {
+            vec2 coordsOffset = vec2(x, y) * texelSize;
+            result += fnc_sample_show_map(shadowMap, coords + coordsOffset, compare);
+            //result += fnc_sample_shadow_map_linear(shadowMap, coords + coordsOffset, texelSize, compare);
+        }
+    }
+
+    return result / NUM_SAMPLES_SQUARED;
 }
 
 float fnc_shadow_directional_light(vec4 vertexLightSpace, vec3 normal, vec3 lightDir)
@@ -125,23 +149,8 @@ float fnc_shadow_directional_light(vec4 vertexLightSpace, vec3 normal, vec3 ligh
     vec2 texelSize = 1.0 / textureSize(dirLightShadowMap, 0);
     projCoords = projCoords * 0.5 + 0.5;
 
-    float closestDepth = texture(dirLightShadowMap, projCoords.xy).r;
-    float currentDepth = projCoords.z;
-
-    float shadow = 0.0, bias = max(0.05 * (1.0 - dot(normal, lightDir)), 0.005);
-    int halfkernelWidth = 1;
-
-    for(int x = -halfkernelWidth; x <= halfkernelWidth; ++x)
-    {
-        for(int y = -halfkernelWidth; y <= halfkernelWidth; ++y)
-        {
-            float pcfDepth = texture(dirLightShadowMap, projCoords.xy + vec2(x, y) * texelSize).r;
-            shadow += currentDepth - bias > pcfDepth ? 1.0 : 0.0;
-        }
-    }
-
-    shadow /= ((halfkernelWidth * 2 + 1) * (halfkernelWidth * 2 + 1));
-    return shadow;
+    float bias = max(0.002 * (1.0 - dot(normal, lightDir)), 0.001);
+    return 1.0f - fnc_sample_shadow_map_pfc(dirLightShadowMap, projCoords.xy, texelSize, projCoords.z - bias);
 }
 
 float fnc_shadow_point_light(samplerCube cubeMap, vec3 vertexPos, vec3 lightPos)
@@ -262,14 +271,14 @@ vec3 light_directional(vec3 texAmbient, vec3 texSpecular, vec3 texDiffuse)
 void main()
 {
     vec2 uv = vec2(fs_in.uv.x, -fs_in.uv.y);
-    
+
     vec4 diffuseColor  = texture(material.diffuseTexture , uv);
     vec4 ambientColor  = texture(material.ambientTexture , uv);
     vec4 specularColor = texture(material.specularTexture, uv);
     
     vec3 p = light_point(ambientColor.xyz, specularColor.xyz, diffuseColor.xyz);
     vec3 d = light_directional(ambientColor.xyz, specularColor.xyz, diffuseColor.xyz);
-    
+
     vec3 l = pow((p + d), vec3(1.0/2.2));
     screenColor = vec4(l, diffuseColor.a);
 }
