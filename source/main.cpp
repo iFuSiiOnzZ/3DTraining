@@ -127,11 +127,14 @@ static void Win32ProcessGamePad(S_USER_INPUT *currentInput, S_USER_INPUT *lastIn
     }
 }
 
-static void Win32ProcessKeyboardMessage(S_INPUT_STATE *currentState, bool isDown, bool wasDown)
+static void Win32ProcessKeyboardMessage(S_INPUT_STATE *currentState, bool isDown)
 {
-    currentState->IsDown = isDown;
-    currentState->WasDown = wasDown;
-    ++currentState->HalfTransitionCount;
+    if (currentState->IsDown != isDown)
+    {
+        currentState->IsDown = isDown;
+        currentState->WasDown = !isDown;
+        ++currentState->HalfTransitionCount;
+    }
 }
 
 static void Win32ProcessPendingMessage(S_USER_INPUT *currentInput, S_USER_INPUT *lastInput)
@@ -172,7 +175,7 @@ static void Win32ProcessPendingMessage(S_USER_INPUT *currentInput, S_USER_INPUT 
 
                 if (isDown != wasDown)
                 {
-                    Win32ProcessKeyboardMessage(&currentInput->Keyboard.KeyState[hMsg.wParam], isDown, wasDown);
+                    Win32ProcessKeyboardMessage(&currentInput->Keyboard.KeyState[hMsg.wParam], isDown);
                 }
             } break;
 
