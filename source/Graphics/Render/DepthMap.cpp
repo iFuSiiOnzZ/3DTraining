@@ -62,6 +62,8 @@ bool CDepthMap::Create(int x, int y)
 void CDepthMap::Bind(void) const
 {
     glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
+    glViewport(0, 0, w, h);
+
     glClear(GL_DEPTH_BUFFER_BIT);
     glDisable(GL_CULL_FACE);
 }
@@ -138,6 +140,7 @@ void CPointDepthMap::Bind() const
 {
     glBindFramebuffer(GL_FRAMEBUFFER, depthMapFBO);
     glClear(GL_DEPTH_BUFFER_BIT);
+    glViewport(0, 0, w, h);
 }
 
 void CPointDepthMap::Unbind(void) const

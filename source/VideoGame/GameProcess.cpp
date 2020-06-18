@@ -276,12 +276,13 @@ void CGameProcess::Update(const S_PLATFORM *platform)
     }
 }
 
-void CGameProcess::Render(const S_PLATFORM *)
+void CGameProcess::Render(const S_PLATFORM *platform)
 {
     //GenerateSSAODepthMap(m_SSAO.ssaoDept);
 
     glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glViewport(0, 0, platform->data.screenSize.x, platform->data.screenSize.y);
 
     m_ShaderProgram.ActiveProgram();
         CMatrix4f projViewMatrix = m_Camera.GetViewMatrix() * m_PersProj;
@@ -441,11 +442,7 @@ void CGameProcess::GeneratePointLightShadowMap(const S_LIGHT *light)
         { CVector3f( 0.0f,  0.0f, -1.0f), CVector3f(0.0f, -1.0f,  0.0f) }  // GL_TEXTURE_CUBE_MAP_NEGATIVE_Z
     };
 
-    int currentViewPort[4];
-    glGetIntegerv(GL_VIEWPORT, currentViewPort);
-
     char shadowMatrixName[256];
-    glViewport(0, 0, light->pointDepthMap.width(), light->pointDepthMap.height());
 
     m_PointLightDeptProgramShader.ActiveProgram();
         m_PointLightDeptProgramShader.setUniformValue("zFar", m_Camera.GetZFar());
@@ -466,18 +463,12 @@ void CGameProcess::GeneratePointLightShadowMap(const S_LIGHT *light)
             }
         light->pointDepthMap.Unbind();
     m_PointLightDeptProgramShader.ReleaseProgram();
-
-    glViewport(0, 0, currentViewPort[2], currentViewPort[3]);
 }
 
 void CGameProcess::GenerateSSAODepthMap(CDepthMap &map)
 {
     CPerspectiveProjectionf proj;
     proj.set(90.0f, (float)map.width() / (float)map.height(), m_Camera.GetZNear(), m_Camera.GetZFar());
-
-    int currentViewPort[4];
-    glGetIntegerv(GL_VIEWPORT, currentViewPort);
-    glViewport(0, 0, map.width(), map.height());
 
     m_SSAO.shaderProg.ActiveProgram();
         m_SSAO.shaderProg.setUniformValue("zFar", m_Camera.GetZFar());
@@ -494,6 +485,4 @@ void CGameProcess::GenerateSSAODepthMap(CDepthMap &map)
             }
         map.Unbind();
     m_SSAO.shaderProg.ReleaseProgram();
-
-    glViewport(0, 0, currentViewPort[2], currentViewPort[3]);
 }
