@@ -371,7 +371,7 @@ int WINAPI WinMain(HINSTANCE hActualInst, HINSTANCE hPrevInst, LPSTR cmdLine, in
     MemLeaks::MemoryBegin();
 
     CGraphicsManager graphicsManager;
-    if(!graphicsManager.Init(gWindowHandler, false))
+    if(!graphicsManager.Init(gWindowHandler, true))
     {
         UnregisterClass(PROGRAM_CLASS, wndCls.hInstance);
         return EXIT_FAILURE;
