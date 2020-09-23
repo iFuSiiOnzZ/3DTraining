@@ -91,6 +91,17 @@ std::vector<CRenderableObject> *CRenderableObject::loadObject(const char *filena
     typedef std::vector<CRenderableObject> CRenderObjsVec;
     CRenderObjsVec *renderObjects = ALLOCATOR_FREE_LIST->MakeNew<CRenderObjsVec>();
 
+    CTexture *dummyTexture = resourceManger->Get<CTexture>("dummy");
+    if (dummyTexture == nullptr)
+    {
+        dummyTexture = ALLOCATOR_FREE_LIST->MakeNew<CTexture>();
+        resourceManger->Add<CTexture>("dummy", dummyTexture);
+
+        unsigned char color[4] = { 0, 0, 0, 255 };
+        dummyTexture->SetRepeate(true).SetName("dummy");
+        dummyTexture->SetTexture(color, 1, 1, 4);
+    }
+
     for (auto &mesh : meshes.objects)
     {
         if (mesh.indices.empty())
@@ -114,6 +125,10 @@ std::vector<CRenderableObject> *CRenderableObject::loadObject(const char *filena
         renderObjects->back().Ks.x = mesh.material.Ks.x;
         renderObjects->back().Ks.y = mesh.material.Ks.y;
         renderObjects->back().Ks.z = mesh.material.Ks.z;
+
+        renderObjects->back().TKa = dummyTexture;
+        renderObjects->back().TKd = dummyTexture;
+        renderObjects->back().TKs = dummyTexture;
 
         renderObjects->back().mesh = ALLOCATOR_FREE_LIST->MakeNew<IndexedVertex>
         (
